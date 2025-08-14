@@ -2124,8 +2124,11 @@ def do_one_depth(gate_list, start_pos):
             maxloc = maxw.location(current_pos)
             the_names = []
             for wn in wires:
-                if wires[wn].location(current_pos) >= minloc and wires[wn].location(current_pos) <= maxloc:
+                # if wires[wn].location(current_pos) >= minloc and wires[wn].location(current_pos) <= maxloc:
+                #     the_names.append(wn)
+                if wires[wn].location(current_pos) == minloc or wires[wn].location(current_pos) == maxloc:
                     the_names.append(wn)
+                
         if gate.type == 'PHANTOM':
             for wn in gate.targets:
                 sub_pos[wn] = current_pos
